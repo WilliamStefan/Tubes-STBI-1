@@ -53,16 +53,16 @@
 
 					<!-- Query -->
 					<div class="form-group">
-						<label class="col-md-2 control-label" for="DocumentLocation">Query</label>  
+						<label class="col-md-2 control-label" for="queryExperimental">Query</label>  
 						<div class="col-md-8">
-							<input id="DocumentLocation" name="DocumentLocation" type="text" placeholder="File URL" class="form-control input-md" required="">
+							<input id="queryExperimental" name="queryExperimental" type="text" placeholder="File URL" class="form-control input-md" required="">
 							<span class="help-block">Contoh: "Materi STBI"</span> 
 						</div>
 					</div>
 					<!-- Button -->
 					<center>
 						<div class="form-group">
-							<button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+							<button id="submitQueryExperimental" name="singlebutton" class="btn btn-primary">Submit</button>
 						</div>
 					</center>
 				</fieldset>
