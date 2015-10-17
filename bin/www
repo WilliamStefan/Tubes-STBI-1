@@ -5,12 +5,9 @@
  */
 
 var app = require('../app');
+var Collection = require('../lib/Collection');
 var debug = require('debug')('SearchEngine:server');
 var http = require('http');
-var stemmer = require('porter-stemmer').stemmer;
-var natural = require('natural'),  
-    stemmer = natural.PorterStemmer;
-stemmer.attach();
 
 
 /**
@@ -98,64 +95,14 @@ function onListening() {
  * Load document collection into array
  */
 
-var stopWordFile = require('fs');
-var stopWord = stopWordFile.readFileSync('../file/stopWord.txt').toString().split('\r\n');
+var collection = new Collection();
 
-var matrix = [];
-var file = require('fs');
-var documents = file.readFileSync('../file/ADI/adi.all').toString().split('.I');
-for(var i = 0; i < documents.length;i++) {
-    var document = documents[i];
-    var element, title, author, words;
+collection.loadDocuments('./file/ADI/adi.all');
+collection.loadStopWords('./file/stopWord.txt');
+collection.processData();
+collection.countIdf();
 
-    if(document != '') {
-        element = document.split('.T\r\n');
-        element = element[1].split('.A\r\n');
-        if(element.length == 2) {
-            title = element[0];
-            element = element[1].split('.W\r\n');
-            if(element.length == 2) {
-                author = element[0];
-                words = element[1];
-            }
-        }
-        else {
-            element = element[0].split('.W\r\n');
-            if(element.length == 2) {
-                title = element[0];
-                words = element[1];
-            }
-        }
-        
-        for(var k = 0 ; k < stopWord.length; k++){
-          title = title.replace(new RegExp('\\s'+stopWord[k]+'\\s','gi'),' ');
-          words = words.replace(new RegExp('\\s'+stopWord[k]+'\\s','gi'),' ');
-        }
-        title = title.replace(new RegExp('\\s*(\\d+|[^\\w])\\s','gi'),' ');
-        title = title.replace(new RegExp('\\s[^\\w]\\s*','gi'),' ');
-        words = words.replace(new RegExp('\\s*(\\d+|[^\\w])\\s','gi'),' ');
-        words = words.replace(new RegExp('\\s[^\\w]\\s*','gi'),' ');
-        
-        console.log(title);
-        var arrTitle = title.split(' ');
-        for(var j = 0; j < arrTitle.length; j++){
-          // arrTitle[j] = arrTitle[j].toLowerCase();
-          // arrTitle[j] = arrTitle[j].replace(new RegExp('[^\\w]','g'),'');
-          // arrTitle[j] = arrTitle[j].replace(new RegExp('kilo|milli|micro|ultra|intra|mega|nano|pico|pseudo','g'),'');
-          // arrTitle[j] = arrTitle[j].replace(new RegExp('+^ss'),'');
-          // console.log(stemmer(arrTitle[j]));
-        }
-        // console.log(title);
-        // console.log(author);
-        // console.log(words);
-
-        // var titleStemmed = 
-        console.log(stemmer.tokenizeAndStem(title));
-        // var wordsStemmed = stemmer.tokenizeAndStem(words);
-
-        // console.log(title);
-        // console.log(author);
-        // console.log(words);
-        break;
-    }
-};
+/*var document = collection.getDocument(0);
+console.log(document);
+console.log(collection.removeStopWord(document.title));
+console.log(collection.stemText(collection.removeStopWord(document.title)));*/
