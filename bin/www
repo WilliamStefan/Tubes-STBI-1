@@ -101,6 +101,7 @@ collection.loadDocuments('./file/ADI/adi.all');
 collection.loadStopWords('./file/stopWord.txt');
 collection.processData();
 collection.countIdf();
+collection.indexing('what is information science? give definitions where possible.');
 
 /*var document = collection.getDocument(0);
 console.log(document);
