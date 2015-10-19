@@ -14,7 +14,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);
 
 /**
@@ -102,8 +102,3 @@ collection.loadStopWords('./file/stopWord.txt');
 collection.processData();
 collection.countIdf();
 collection.indexing('what is information science? give definitions where possible.');
-
-/*var document = collection.getDocument(0);
-console.log(document);
-console.log(collection.removeStopWord(document.title));
-console.log(collection.stemText(collection.removeStopWord(document.title)));*/
