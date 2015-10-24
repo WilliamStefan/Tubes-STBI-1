@@ -97,8 +97,8 @@ function onListening() {
 
 var collection = new Collection();
 
-collection.loadDocuments('./file/ADI/adi.all');
-collection.loadStopWords('./file/stopWord.txt');
+collection.loadDocuments('../file/ADI/adi.all');
+collection.loadStopWords('../file/stopWord.txt');
 collection.processData();
 collection.countIdf();
 collection.indexing('what is information science? give definitions where possible.');
