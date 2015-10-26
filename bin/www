@@ -91,6 +91,13 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
+// app.post('/', function(req, res) {
+//   console.log(req.body);
+//   res.send(200);
+
+//   // sending a response does not pause the function
+// });
+
 /**
  * Load document collection into array
  */
@@ -101,4 +108,4 @@ collection.loadDocuments('../file/ADI/adi.all');
 collection.loadStopWords('../file/stopWord.txt');
 collection.processData();
 collection.countIdf();
-collection.indexing('what is information science? give definitions where possible.');
+collection.indexing('what is information science? give definitions where possible.','option2','option2','option1','option2','option2','option1');
