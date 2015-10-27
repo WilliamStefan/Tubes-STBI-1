@@ -104,10 +104,10 @@ function onListening() {
 
 var collection = new Collection();
 // 
-collection.loadQuery('../file/ADI/query.text');
-collection.loadDocuments('../file/ADI/adi.all');
+collection.loadQuery('../file/CISI/query.text');
+collection.loadDocuments('../file/CISI/cisi.all');
 collection.loadStopWords('../file/stopWord.txt');
-collection.loadQrels('../file/ADI/qrels.text');
+collection.loadQrels('../file/CISI/qrels.text');
 collection.processData();
 collection.countIdf();
 collection.countRecallPrecision();
