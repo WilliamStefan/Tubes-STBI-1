@@ -18,8 +18,7 @@ router.post('/indexing', function(req, res, next) {
 	collection.loadQuery(req.body.queryLocation);
 	collection.loadStopWords(req.body.stopwordLocation);
 	collection.processData();
-	collection.countRecall();
-	collection.countPrecision();
+	collection.countRecallPrecision();
     res.redirect('/');
 });
 
