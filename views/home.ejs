@@ -31,7 +31,7 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/">Normal</a></li>
-							<li><a href="/experimental">Experimental</a></li>
+							<li><a href="/interactive">Interactive</a></li>
 							<li><a href="/help">Help</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
@@ -39,47 +39,61 @@
 			</nav>
 		</div>
 		
-		<div id="header2">
+		<!-- <div id="header2">
 			<h2 class="text-center">SEARCH ANYTHING</h2>
-		</div>
+		</div> -->
 		
 		<div id="content">
 			<form action="/indexing" method="post" class="form-horizontal">
 				<!-- Input type text -->
 				<!-- Document Location -->
 				<div class="form-group">
-					<label class="col-sm-5 control-label">Document Location</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" placeholder="File URL">
-					</div>
+					<label class="col-sm-6 control-label">Document Location</label>
+					<!-- <div class="col-sm-3">
+						<input type="text" id="docLocationManual" class="form-control" placeholder="File URL">
+					</div> -->
+					<input type="file" id="docLocation">
 				</div>
 				
 				<!-- Query Location -->
 				<div class="form-group">
-					<label class="col-sm-5 control-label">Query Location</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" placeholder="File URL">
-					</div>
-				</div>
-				
-				<!-- Relevant Judgement -->
-				<div class="form-group">
-					<label class="col-sm-5 control-label">Relevant Judgement</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" placeholder="File URL">
-					</div>
+					<label class="col-sm-6 control-label">Query Location</label>
+					<!-- <div class="col-sm-3">
+						<input type="text" id="queryLocationManual" class="form-control" placeholder="File URL">
+					</div> -->
+					<input type="file" id="queryLocation">
 				</div>
 				
 				<!-- Stopword Location -->
 				<div class="form-group">
-					<label class="col-sm-5 control-label">Stopword Location</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" placeholder="File URL">
-					</div>
+					<label class="col-sm-6 control-label">Stopword Location</label>
+					<!-- <div class="col-sm-3">
+						<input type="text" id="stopwordLocationManual" class="form-control" placeholder="File URL">
+					</div> -->
+					<input type="file" id="stopwordLocation">
 				</div>
 				
-				<br>
+				<!-- Relevance Judgement -->
+				<div class="form-group">
+					<label class="col-sm-6 control-label">Relevance Judgement Location</label>
+					<!-- <div class="col-sm-3">
+						<input type="text" id="relLocationManual" class="form-control" placeholder="File URL">
+					</div> -->
+					<input type="file" id="relLocation">
+				</div>
 				
+				<!-- Indexing button -->
+				<center>
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-6">
+							<button type="submit" id="indexingButton" class="btn btn-default">Indexing</button>
+						</div>
+					</div>
+				</center>
+				<br>
+			</form>
+				
+			<form action="/experimental" method="post" class="form-horizontal">	
 				<!-- Radio button -->
 				<div class="row">
 					<!-- Documents -->
@@ -266,14 +280,34 @@
 							</label>
 						</div>
 						
-						<!-- Finish button -->
-						<br><br>
-						<div class="form-group">
-							<div class="col-sm-offset-3 col-sm-6">
-								<button type="submit" id="indexingButton" class="btn btn-default">Indexing</button>
-							</div>
+						<!-- Stemming -->
+						<br>
+						<label class="col-md-offset-3 col-md-6">Stemming</label><br>
+						<!-- No stemming -->
+						<div class="radio">
+							<label class="col-md-offset-3 col-md-6">
+								<input type="radio" name="StemmingQ" id="Stemming1" value="option1" checked>
+								No stemming
+							</label>
+						</div>
+						
+						<!-- Using stemming -->
+						<div class="radio">
+							<label class="col-md-offset-3 col-md-6">
+								<input type="radio" name="StemmingQ" id="Stemming2" value="option2">
+								Using stemming
+							</label>
 						</div>
 					</div>
+					
+					<!-- Run button -->
+					<center>
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-6">
+								<button type="submit" id="runButton" class="btn btn-default">Run</button>
+							</div>
+						</div>
+					</center>
 				</div>
 			</form>
 		</div>

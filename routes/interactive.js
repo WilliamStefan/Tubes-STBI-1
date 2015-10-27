@@ -5,9 +5,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET experimental page. */
-router.get('/experimental', function(req, res, next) {
-    res.render('experimental');
+/* GET interactive page. */
+router.get('/interactive', function(req, res, next) {
+    res.render('interactive');
 });
 
 router.post('/indexing', function(req, res, next) {
