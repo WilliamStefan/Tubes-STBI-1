@@ -12,14 +12,20 @@ router.get('/', function(req, res, next) {
 });
 var collection = new Collection(); 
 router.post('/indexing', function(req, res, next) {
-    // console.log(req.body);
 	collection.loadDocuments(req.body.docLocation);
 	collection.loadQrels(req.body.relLocation);
 	collection.loadQuery(req.body.queryLocation);
 	collection.loadStopWords(req.body.stopwordLocation);
 	collection.processData();
+	collection.countIdf();
 	collection.countRecallPrecision();
+	collection.createInvertedFile(
+		req.body.TFD,
+		req.body.IDFD,
+		req.body.NormalizationD
+	);
     res.redirect('/');
+
 });
 
 router.post('/experimental', function(req, res, next) {
