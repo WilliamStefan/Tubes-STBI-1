@@ -104,9 +104,10 @@ function onListening() {
 
 var collection = new Collection();
 
+// collection.loadQuery('../file/ADI/query.text');
 // collection.loadDocuments('../file/ADI/adi.all');
 // collection.loadStopWords('../file/stopWord.txt');
 // collection.processData();
-collection.loadQrels('../file/ADI/qrels.text');
+// collection.loadQrels('../file/ADI/qrels.text');
 // collection.countIdf();
 // collection.indexing('what is information science? give definitions where possible.','option2','option5','option1','option2','option5','option1');
