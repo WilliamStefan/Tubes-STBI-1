@@ -10,23 +10,30 @@ var Collection = require('../lib/Collection');
 router.get('/', function(req, res, next) {
     res.render('home');
 });
+var collection = new Collection(); 
 router.post('/indexing', function(req, res, next) {
-    console.log(req.body);
-
-
-    var collection = new Collection(); 
-	collection.loadDocuments('../file/ADI/adi.all');
-	collection.loadStopWords('../file/stopWord.txt');
+    // console.log(req.body);
+	collection.loadDocuments(req.body.docLocation);
+	collection.loadQrels(req.body.relLocation);
+	collection.loadQuery(req.body.queryLocation);
+	collection.loadStopWords(req.body.stopwordLocation);
 	collection.processData();
-	collection.countIdf();
-	collection.indexing(
-		'what is information science? give definitions where possible.',
-		req.body.TFD,
-		req.body.IDFD,
-		req.body.NormalizationD,
-		req.body.TFQ,
-		req.body.IDFQ,
-		req.body.NormalizationQ);
+	collection.countRecall();
+	collection.countPrecision();
+    res.redirect('/');
+});
+
+router.post('/experimental', function(req, res, next) {
+	for(var i = 0; i < collection.queryArray.length; i++){
+		collection.indexing(
+			collection.queryArray[i],
+			req.body.TFD,
+			req.body.IDFD,
+			req.body.NormalizationD,
+			req.body.TFQ,
+			req.body.IDFQ,
+			req.body.NormalizationQ);
+	}
     res.redirect('/');
 });
 
