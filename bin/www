@@ -113,4 +113,4 @@ collection.loadQrels('../file/ADI/qrels.text');
 collection.countPrecision();
 // collection.countIdf();
 // collection.indexing('what is information science? give definitions where possible.','option2','option5','option1','option2','option5','option1');
-// collection.createInvertedFile();
+collection.createInvertedFile();
