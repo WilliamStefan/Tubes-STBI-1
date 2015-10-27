@@ -52,7 +52,7 @@
 					<!-- <div class="col-sm-3">
 						<input type="text" id="docLocationManual" class="form-control" placeholder="File URL">
 					</div> -->
-					<input type="file" id="docLocation">
+					<input type="file" id="docLocation" name="docLocation">
 				</div>
 				
 				<!-- Query Location -->
@@ -61,7 +61,7 @@
 					<!-- <div class="col-sm-3">
 						<input type="text" id="queryLocationManual" class="form-control" placeholder="File URL">
 					</div> -->
-					<input type="file" id="queryLocation">
+					<input type="file" id="queryLocation" name="queryLocation">
 				</div>
 				
 				<!-- Stopword Location -->
@@ -70,7 +70,7 @@
 					<!-- <div class="col-sm-3">
 						<input type="text" id="stopwordLocationManual" class="form-control" placeholder="File URL">
 					</div> -->
-					<input type="file" id="stopwordLocation">
+					<input type="file" id="stopwordLocation" name="stopwordLocation">
 				</div>
 				
 				<!-- Relevance Judgement -->
@@ -79,21 +79,11 @@
 					<!-- <div class="col-sm-3">
 						<input type="text" id="relLocationManual" class="form-control" placeholder="File URL">
 					</div> -->
-					<input type="file" id="relLocation">
+					<input type="file" id="relLocation" name="relLocation">
 				</div>
 				
-				<!-- Indexing button -->
-				<center>
-					<div class="form-group">
-						<div class="col-sm-offset-3 col-sm-6">
-							<button type="submit" id="indexingButton" class="btn btn-default">Indexing</button>
-						</div>
-					</div>
-				</center>
 				<br>
-			</form>
-				
-			<form action="/experimental" method="post" class="form-horizontal">	
+			
 				<!-- Radio button -->
 				<div class="row">
 					<!-- Documents -->
@@ -299,6 +289,15 @@
 							</label>
 						</div>
 					</div>
+					
+					<!-- Indexing button -->
+					<center>
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-6">
+								<button type="submit" id="indexingButton" class="btn btn-default">Indexing</button>
+							</div>
+						</div>
+					</center>
 					
 					<!-- Run button -->
 					<center>
