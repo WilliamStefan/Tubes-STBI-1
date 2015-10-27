@@ -42,4 +42,16 @@ router.post('/experimental', function(req, res, next) {
     res.redirect('/');
 });
 
+router.post('/interactive', function(req, res, next) {
+	collection.indexing(
+		req.body.queryInteractive,
+		req.body.TFD,
+		req.body.IDFD,
+		req.body.NormalizationD,
+		req.body.TFQ,
+		req.body.IDFQ,
+		req.body.NormalizationQ);
+    res.redirect('/');
+});
+
 module.exports = router;
