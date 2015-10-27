@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var home = require('./routes/home');
-var experimental = require('./routes/experimental');
+// var experimental = require('./routes/experimental');
 var interactive = require('./routes/interactive');
 var help = require('./routes/help');
 
@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', home);
-app.use('/', experimental);
+// app.use('/', experimental);
 app.use('/', interactive);
 app.use('/', help);
 
