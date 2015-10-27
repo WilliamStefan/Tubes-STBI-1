@@ -104,7 +104,11 @@ function onListening() {
 
 var collection = new Collection();
 // 
+<<<<<<< HEAD
 collection.loadQuery('../file/CISI/query.text');
+=======
+collection.loadQuery('../file/ADI/query.text');
+>>>>>>> 4aa466c28ab43052ae6b665e472952956f2d509b
 collection.loadDocuments('../file/CISI/cisi.all');
 collection.loadStopWords('../file/stopWord.txt');
 collection.loadQrels('../file/CISI/qrels.text');
