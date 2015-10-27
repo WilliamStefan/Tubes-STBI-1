@@ -105,7 +105,7 @@ function onListening() {
 var collection = new Collection();
 // 
 collection.loadQuery('../file/ADI/query.text');
-collection.loadDocuments('../file/ADI/adi.all');
+collection.loadDocuments('../file/CISI/cisi.all');
 collection.loadStopWords('../file/stopWord.txt');
 collection.loadQrels('../file/ADI/qrels.text');
 collection.processData();
