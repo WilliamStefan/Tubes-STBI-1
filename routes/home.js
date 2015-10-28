@@ -4,22 +4,21 @@
 
 var express = require('express');
 var router = express.Router();
-var Collection = require('../lib/Collection');
+var global = require('./global');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('home');
 });
-var collection = new Collection(); 
 router.post('/indexing', function(req, res, next) {
-	collection.loadDocuments(req.body.docLocation);
-	collection.loadQrels(req.body.relLocation);
-	collection.loadQuery(req.body.queryLocation);
-	collection.loadStopWords(req.body.stopwordLocation);
-	collection.processData();
-	collection.countIdf();
-	collection.countRecallPrecision();
-	collection.createInvertedFile(
+	global.collection.loadDocuments(req.body.docLocation);
+	global.collection.loadQrels(req.body.relLocation);
+	global.collection.loadQuery(req.body.queryLocation);
+	global.collection.loadStopWords(req.body.stopwordLocation);
+	global.collection.processData();
+	global.collection.countIdf();
+	global.collection.countRecallPrecision();
+	global.collection.createInvertedFile(
 		req.body.TFD,
 		req.body.IDFD,
 		req.body.NormalizationD
@@ -30,7 +29,7 @@ router.post('/indexing', function(req, res, next) {
 
 router.post('/experimental', function(req, res, next) {
 	for(var i = 0; i < collection.queryArray.length; i++){
-		collection.indexing(
+		global.collection.indexing(
 			collection.queryArray[i],
 			req.body.TFD,
 			req.body.IDFD,
