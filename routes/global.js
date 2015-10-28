@@ -1,5 +1,5 @@
-var Collection = require('../lib/collection');
+var Collection = require('../lib/Collection');
 
 var collection = new Collection();
 
-module.exports = global;
+module.exports = collection;

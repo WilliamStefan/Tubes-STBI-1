@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
     res.render('home');
 });
 router.post('/indexing', function(req, res, next) {
+	console.log(global.collection);
 	global.collection.loadDocuments(req.body.docLocation);
 	global.collection.loadQrels(req.body.relLocation);
 	global.collection.loadQuery(req.body.queryLocation);
@@ -28,9 +29,9 @@ router.post('/indexing', function(req, res, next) {
 });
 
 router.post('/experimental', function(req, res, next) {
-	for(var i = 0; i < collection.queryArray.length; i++){
+	for(var i = 0; i < global.collection.queryArray.length; i++){
 		global.collection.indexing(
-			collection.queryArray[i],
+			global.collection.queryArray[i],
 			req.body.TFD,
 			req.body.IDFD,
 			req.body.NormalizationD,
