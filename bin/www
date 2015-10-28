@@ -104,13 +104,13 @@ function onListening() {
 
 var collection = new Collection();
 // 
-collection.loadQuery('../file/ADI/query.text');
-collection.loadDocuments('../file/ADI/adi.all');
-collection.loadStopWords('../file/stopWord.txt');
-collection.loadQrels('../file/ADI/qrels.text');
-collection.processData();
-collection.countIdf();
-collection.countRecallPrecision();
+// collection.loadQuery('../file/ADI/query.text');
+// collection.loadDocuments('../file/ADI/adi.all');
+// collection.loadStopWords('../file/stopWord.txt');
+// collection.loadQrels('../file/ADI/qrels.text');
+// collection.processData();
+// collection.countIdf();
+// collection.countRecallPrecision();
 // collection.indexing('What problems and concerns are there in making up descriptive titles? What difficulties are involved in automatically retrieving articles from approximate titles? What is the usual relevance of the content of articles to their titles?'
 //   ,'option2','option5','option1','option2','option5','option1');
 // collection.createInvertedFile('option2','option2','option1');

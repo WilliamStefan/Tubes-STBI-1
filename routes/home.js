@@ -6,6 +6,8 @@ var express = require('express');
 var router = express.Router();
 var global = require('./global');
 
+var app = express();
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('home');
@@ -53,13 +55,12 @@ router.post('/experimental', function(req, res, next) {
 		
 	var JSONobj = JSON.parse(JSONstr);
 
-	console.log("JSONobj: " + JSONobj);
+	// console.log("JSONobj: " + JSONobj);
 	
-	// res.send(JSONobj);
-    
-});
+	res.render('tes', JSONobj);
+ });
 
-router.get('/experimental', function(req, res, next) {
+app.get('/experimental', function(req, res, next) {
 	console.log('experimental');
 	res.redirect('/tes');
 });
