@@ -4,6 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
+// var html = new EJS({url: 'interactive.ejs'}).render("../views/data.json");
 
 /* GET interactive page. */
 router.get('/interactive', function(req, res, next) {

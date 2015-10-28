@@ -2,6 +2,7 @@
 <html lang="en">
 	<!-- CSS -->
 	<link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/normal.css" rel="stylesheet">
 
 	
 
@@ -35,10 +36,6 @@
 				</div><!-- /.container-fluid -->
 			</nav>
 		</div>
-		
-		<!-- <div id="header2">
-			<h2 class="text-center">SEARCH ANYTHING</h2>
-		</div> -->
 		
 		<div id="content">
 			<form action="/indexing" method="post" class="form-horizontal">
@@ -306,6 +303,25 @@
 						<div class="form-group">
 							<div class="col-sm-offset-3 col-sm-6">
 								<button type="submit" id="runButton" class="btn btn-default">Run</button>
+							</div>
+						</div>
+					</center>
+			</form>
+			
+			<form action="/interactive" method="post" class="form-horizontal">
+				<!-- Run button -->
+					<!-- Query -->
+					<div class="form-group">
+							<label class="col-md-2 control-label" for="queryInteractive">Query</label>  
+						<div class="col-md-8">
+							<input id="queryInteractive" name="queryInteractive" type="text" placeholder='Contoh: "Materi STBI"' class="form-control input-md" required="">
+						</div>
+					</div>
+					
+					<center>
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-6">
+								<button type="submit" id="runButton" class="btn btn-default">Run interactive</button>
 							</div>
 						</div>
 					</center>
