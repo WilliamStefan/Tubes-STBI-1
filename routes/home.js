@@ -10,6 +10,7 @@ var global = require('./global');
 router.get('/', function(req, res, next) {
     res.render('home');
 });
+
 router.post('/indexing', function(req, res, next) {
 	// console.log(global.collection);
 	global.collection.loadDocuments(req.body.docLocation);
@@ -24,8 +25,24 @@ router.post('/indexing', function(req, res, next) {
 		req.body.IDFD,
 		req.body.NormalizationD
 	);
-    res.redirect('/');
+	var JSONstr = "{\"data\": [";
+	
+	for(var i=0; i<global.collection.recall.length - 1; i++) {
+		JSONstr += "{";
+		JSONstr += "\"recall\": " + global.collection.recall[i] + ", ";
+		JSONstr += "\"precision\": " + global.collection.precision[i] + ", ";
+		JSONstr += "\"niap\":" + global.collection.interpolatedPrecision[i] + "}, ";
+	}
+	JSONstr += "{\"recall\": " + global.collection.recall[global.collection.recall.length - 1] + ", ";
+	JSONstr += "\"precision\": " + global.collection.precision[global.collection.recall.length - 1] + ", ";
+	JSONstr += "\"niap\": " + global.collection.interpolatedPrecision[global.collection.recall.length - 1] + "}]}";
+		
+	var JSONobj = JSON.parse(JSONstr);
 
+	console.log("JSONobj: " + JSONobj);
+	
+	res.send(JSONobj);
+    res.redirect('/');
 });
 
 router.post('/experimental', function(req, res, next) {
