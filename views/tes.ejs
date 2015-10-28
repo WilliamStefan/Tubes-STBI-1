@@ -1,0 +1,13 @@
+<% if(JSONobj != null) { %> 
+					<% for(var i=0; i<JSONobj.length; i++) { %>
+						<div class="row">
+							<div class="col-sm-offset-3 col-sm-5">
+								<h6>Jumlah Dokumen: <%= JSONobj[i]%> </h6>
+								<h6>Recall: <%= data[i]%> </h6>
+								<h6>Precision: <%= data[i]%> </h6>
+								<h6>Non-Interpolated Average Precision: <%= data[i]%> </h6>
+							</div>
+						</div>
+					<% } %>
+				<% } %>
+				
