@@ -2,14 +2,19 @@
 <script type='text/javascript'>
   var rows =<%-JSON.stringify(data)%>
   alert(rows);
-  <% for(var i=0; i<JSONobj.length; i++) { %>
-		<div class="row">
+  for(var i=0; i<rows.length; i++) {
+		var newdiv = document.createElement('div');
+
+	    var divIdName = 'my'+num+'Div';
+
+	    newdiv.setAttribute('id',divIdName);
+	    <div class="row">
 			<div class="col-sm-offset-3 col-sm-5">
-				<h6>Jumlah Dokumen: <%= JSONobj[i]%> </h6>
-				<h6>Recall: <%= data[i]%> </h6>
-				<h6>Precision: <%= data[i]%> </h6>
-				<h6>Non-Interpolated Average Precision: <%= data[i]%> </h6>
+				<h6>Jumlah Dokumen: <%= rows[i]%> </h6>
+				<h6>Recall: <%= rows[i]%> </h6>
+				<h6>Precision: <%= rows[i]%> </h6>
+				<h6>Non-Interpolated Average Precision: <%= rows[i]%> </h6>
 			</div>
 		</div>
-	<% } %>
+	} 
 </script>
